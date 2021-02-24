@@ -32,19 +32,17 @@ Then just add your CookieConsent configuration to config/environment.js.
 ```
 let ENV = {
   // ...
-
   cookieconsent: {
     auto: true, // Automatically show cookie consent; default is true
     options: {
                 // CookieConsent configuration goes here
     }
   }
- 
 }
 ```
 
 This addon sets up a "cookieconsent" service:
-* `cookieconsent.isAccepted` contains the current user-selected state.
+* `cookieconsent.isAccepted` contains the current consent state.
 
 * `cookieconsent.show()` can be called to manually show the CookieConsent if auto is set to false.
 
