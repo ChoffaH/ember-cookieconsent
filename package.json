@@ -1,6 +1,6 @@
 {
   "name": "ember-cookieconsent",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An ember-cli addon for using CookieConsent in Ember.js applications.",
   "keywords": [
     "ember-addon"
