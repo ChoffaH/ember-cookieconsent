@@ -1,11 +1,11 @@
 import Service from '@ember/service';
 import { getOwner } from '@ember/application';
 import { isPresent, isNone } from '@ember/utils';
-import { set } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class CookieConsentService extends Service {
+  @tracked isAccepted = true;
   _denyStatus = 'deny';
-  isAccepted = true;
 
   constructor () {
     super (...arguments);
@@ -18,7 +18,7 @@ export default class CookieConsentService extends Service {
       let { type } = cookieconsent.options;
 
       if (type === 'opt-in') {
-        set(this, 'isAccepted', false);
+        this.isAccepted = false;
       }
 
       if (auto) {
@@ -46,7 +46,7 @@ export default class CookieConsentService extends Service {
   }
 
   _setStatus(status) {
-    set(this, 'isAccepted', status !== this._denyStatus);
+    this.isAccepted = status !== this._denyStatus;
   }
 
   _initialize(options) {

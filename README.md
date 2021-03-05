@@ -42,7 +42,7 @@ let ENV = {
 ```
 
 This addon sets up a "cookieconsent" service:
-* `cookieconsent.isAccepted` contains the current consent state.
+* `cookieconsent.isAccepted` contains the current consent state. Since 1.0.1 this property is @tracked.
 
 * `cookieconsent.show()` can be called to manually show the CookieConsent if auto is set to false.
 
