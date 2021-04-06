@@ -7,8 +7,15 @@ export default class CookieConsentService extends Service {
   @tracked isAccepted = true;
   _denyStatus = 'deny';
 
+  get fastboot() {
+    return getOwner(this).lookup('service:fastboot');
+  }
+
   constructor () {
     super (...arguments);
+
+    // Don't do anything if running in FastBoot
+    if (this.fastboot && this.fastboot.isFastBoot) { return; }
 
     let ENV = getOwner(this).resolveRegistration('config:environment');
     let { cookieconsent } = ENV;

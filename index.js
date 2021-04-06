@@ -19,7 +19,7 @@ module.exports = {
   },
 
   included(app) {
-    this._super (...arguments);
+    this._super.included.apply(this, arguments);
 
     // import the above library into vendor.js that was merged with the vendor trees. In browser the library will be eval'd and run
     // In fastboot, the library will not be eval'd
