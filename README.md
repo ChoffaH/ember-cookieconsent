@@ -47,6 +47,12 @@ This addon sets up a "cookieconsent" service:
 * `cookieconsent.show()` can be called to manually show the CookieConsent if auto is set to false.
 
 
+FastBoot
+------------------------------------------------------------------------------
+
+As of 1.0.2 ember-cookieconsent works with FastBoot out of the box by not loading the cookieconsent library in FastBoot at all. This is done because the library uses `document` and `window` which is not available in Node.js.
+
+
 Contributing
 ------------------------------------------------------------------------------
 
