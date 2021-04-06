@@ -8,14 +8,18 @@ module.exports = {
       Funnel = require("broccoli-funnel"),
       mergeTrees = require('broccoli-merge-trees');
  
-    var browserVendorLib = new Funnel('node_modules/cookieconsent/build', {
+    let browserVendorLib = new Funnel('node_modules/cookieconsent/build', {
       files: ['cookieconsent.min.js'],
       destDir: 'cookieconsent'
     });
- 
     browserVendorLib = map(browserVendorLib, (content) => `if (typeof FastBoot === 'undefined') { ${content} }`);
   
-    return new mergeTrees([defaultTree, browserVendorLib]);
+    let nodes = [browserVendorLib];
+    if (defaultTree) {
+      nodes.unshift(defaultTree);
+    }
+
+    return new mergeTrees(nodes);
   },
 
   included(app) {
